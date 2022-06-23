@@ -1,44 +1,17 @@
-# Hackathon Project 🚀
+# OneDayHackathon Project 🚀
 
-Pick a tabular dataset and make a predictive model with it. 
+## General Overview
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The main purpose of this project was to use as a benchmark to gauge how far I've come in the past 2 months of learning at General Assembly's Data Science Immersive Bootcamp. This project was an 8 hour time restricted endeavor. From the start in the morning, we had to find a dataset, clean it, and perform what ever analysis or model fitting we saw necessary and present our findings in the afternoon. The dataset used in this project is a kaggle dataset of professional Counter Strike: Global Offensive (CS:GO) professional match statistics. Find the full dataset and data dictionary here: [kaggle dataset](https://www.kaggle.com/datasets/sadmadlad/csgo-pro-players-dataset).
 
-## Timeline
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Utilizing this dataset I decided to explore any trends among high performing cs:go professionals and how they impact their performance in games. Using that information I fitted a model to predict the impact a professional player may have based on past statistics with hopes of applying this model to determine if there were any up and coming rookies that may be valuable for an organization to pick up early.
 
-- By 10:15am ET, Slack the instructional team your 1-line problem statement and a link to your dataset. We will give you a thumbs up or ask questions/make suggestions.
-- Commit and push regularly.
-- By 4:00pm ET, make your final push to your GitHub submission repo. We'll do 5-minute lightning talks where you'll tell the class what you found. No slides necessary - you can quickly walk us through a Jupyter notebook. 
 
-## Guidelines
+----
 
-We know this is a short time for a project. But you will be amazed what you can accomplish in a day! 
+## EDA and Cleaning 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The dataset had no missing inputs or NaN values so little imputing was necessary. A few columns, namely anything that affiliates a set of statistics with a specific player or organization like team, nickname, or hltv statistics page, were removed from the dataset. Strong players are likely to be picked up by strong teams, however, in the future I wish for this model to be applied to rookies who are not affiliated with any organization and so the model needs to be trained without the influence of brand names and be purely trained on in game statistics. 
 
-We're not expecting anything as polished as previous projects. However, the goal is for you to have something to show for your time. At a minimum, do some EDA and have at least one real (non-baseline) model fit and scored. It does not have to score well.
+----
 
-Make a baseline model model. Then start with a super simple model for your first real model. Don't be afraid to use a subset of the data for faster iteration when you are working out your modeling process.
-
-If you have a large data file, keep it out of GitHub by using your _.gitignore_ file. ⚠️
-
-## Datasets 
-
-You can pick any dataset you're interested in. We suggest not picking a dataset that will take several hours to clean. Picking multiple datasets to merge is not advised unless you are comfortable that this will go smoothly. Do not use your capstone or group project datasets.
-
-You may not use the same dataset as someone else, so first come, first served.
-
-Your dataset and problem do not need to be novel, but please do not pick a dataset that you have used before or that is extremely common in data science examples (such as Titanic, Iris, MNIST, etc.). 
-
-There are many curated collections of interesting datasets online. Here are a few links to get you started:
-
-- [Kaggle](https://www.kaggle.com/datasets)
-- [/r/datasets](https://www.reddit.com/r/datasets/)
-- [Data is Plural](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0)
-
-Reminder: do not duplicate someone else's work and give credit where credit is due.
-
-## Rubric
-
-- [ ] Perform basic EDA (examples: report summary statistics, use visuals to explore your dataset)
-- [ ] If necessary, perform basic data cleaning (examples: handle null values, clean data entry errors)
-- [ ] Make a baseline model
-- [ ] Fit and evaluate at least one model
-
-## Have fun! 🎉
+## Results
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After cleaning the data and preparing it to be passed through pipelines to train various models, the best model for predicting and accurate impace a player would have based on their ingame statistics was a voting regressor model combining an adaregressor, ridgeregressor, and svrregressor models. The final model was slightly overfit, however, had a test set accuracy of approximately 85%. Due to the time restraints, the weights were not able to be pulled from the pipeline and thus the importance of each feature is unknown. If more time were to be spent on the project, the feature importances would be properly acquired as this could be important in increasing the efficiency of finding new promising rookies as recruiters may only need to look at a few strong statistics instead of all of them.
